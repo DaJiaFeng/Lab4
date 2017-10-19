@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 import welcome.Graph.*;
 
 public class helloworld {
-	@SuppressWarnings("null")
 	public static void main(String[] args) throws Exception{
 		
 //		File file = new File("C:\\Users\\RIZERO\\Desktop\\text.txt");
@@ -111,6 +110,7 @@ public class helloworld {
         start2(verList, ve_Map, ran_path, 2);
 		System.out.println(list);
 		System.out.println(new Date());
+		in.close();
 		
 
  }
@@ -118,7 +118,7 @@ public class helloworld {
 	private static void showDirectedGraph(List<Vertex> verList, Map<String, List<Edge>> ve_Map)
 	   {
 	      GraphViz gv = new GraphViz();
-	      gv.addln(gv.start_graph());
+	      gv.addln(gv.startgraph());
 	      for(Vertex ver : verList) {
 	    	  gv.addln(ver.getName());
 	    	  for(Edge edge : ve_Map.get(ver.getName())) {
@@ -128,7 +128,7 @@ public class helloworld {
 	    	  }
 	      }
 	      
-	      gv.addln(gv.end_graph());
+	      gv.addln(gv.endgraph());
 //	      System.out.println(gv.getDotSource());
 	      
 //	      String type = "gif";
@@ -156,7 +156,7 @@ public class helloworld {
 		  path.trim();
 	   
 	      String[] str = path.split(" -> ");
-	      gv.addln(gv.start_graph());
+	      gv.addln(gv.startgraph());
 	      
 	      for(Vertex ver : verList) {
 	    	  if (verList.size()==1)
@@ -205,7 +205,7 @@ public class helloworld {
 //	    	  gv.addln(path+" [color = lightblue]");
 //	      }
 
-	      gv.addln(gv.end_graph());
+	      gv.addln(gv.endgraph());
 //	      System.out.println(gv.getDotSource());
 	      
 //	      String type = "gif";
@@ -223,7 +223,7 @@ public class helloworld {
 	   }
 	
 
-	
+
 
 
 }

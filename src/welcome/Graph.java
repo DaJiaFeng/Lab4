@@ -11,12 +11,12 @@ import welcome.Graph.Edge;
 public class Graph {
 
 	private List<Vertex> vertexList;
-	private Map<String,List<Edge>> ve_Map;
+	private Map<String,List<Edge>> veMap;
 
-	public Graph(List<Vertex> vertexList, Map<String,List<Edge>> ve_Map) {
+	public Graph(List<Vertex> vertexList, Map<String,List<Edge>> veMap) {
 		super();
 		this.vertexList = vertexList;
-		this.ve_Map = ve_Map;
+		this.veMap = veMap;
 	}
 
 	@SuppressWarnings("finally")
@@ -50,11 +50,11 @@ public class Graph {
 		String bridgeword;
 		ArrayList<String> list = new ArrayList<String>();
 		try {
-			List<Edge> e = ve_Map.get(word2);
+			List<Edge> e = veMap.get(word2);
 			e.size();
-			for(Edge edge1 : ve_Map.get(word1)) {
+			for(Edge edge1 : veMap.get(word1)) {
 				bridgeword = edge1.getEnd().getName();
-				for(Edge edge2 : ve_Map.get(bridgeword)) {
+				for(Edge edge2 : veMap.get(bridgeword)) {
 					if(edge2.getEnd().getName().equals(word2)) {
 						count++;
 						list.add(bridgeword);
@@ -88,9 +88,9 @@ public class Graph {
                 temp.clear();
 				builder.append(word1+" ");
 				try {
-				for(Edge edge1 : ve_Map.get(word1))	 {
+				for(Edge edge1 : veMap.get(word1))	 {
 					bridgeword = edge1.getEnd().getName();
-					for(Edge edge2 : ve_Map.get(bridgeword)) {
+					for(Edge edge2 : veMap.get(bridgeword)) {
 						if(edge2.getEnd().getName().equals(word2)) {
 							temp.add(bridgeword);
 							break;
@@ -130,9 +130,9 @@ public class Graph {
 
 		now = start;
 
-		if (ve_Map.get(now.getName()).size()!=0)
+		if (veMap.get(now.getName()).size()!=0)
 		{
-			edge = ve_Map.get(now.getName()).get((int)(ve_Map.get(now.getName()).size()*Math.random()));
+			edge = veMap.get(now.getName()).get((int)(veMap.get(now.getName()).size()*Math.random()));
 
 			next = edge.getEnd();
 			path = start.getName();
@@ -145,13 +145,13 @@ public class Graph {
 				path += " -> " + next.getName();
 				now = next;
 				try {
-					edge = ve_Map.get(now.getName()).get((int)(ve_Map.get(now.getName()).size()*Math.random()));
+					edge = veMap.get(now.getName()).get((int)(veMap.get(now.getName()).size()*Math.random()));
 				}
 				catch(NullPointerException e) {}
 				finally {};
 				next = edge.getEnd();
 			}
-			if  (ve_Map.get(next.name)!=null){
+			if  (veMap.get(next.name)!=null){
 				System.out.print(next.getName()+ " ");
 				out.println(next.getName()+ " ");
 				path += " -> " + next.getName();
@@ -169,12 +169,12 @@ public class Graph {
 		}
 
 	}
-	public Map<String,List<Edge>> get_ve_Map() {
-		return ve_Map;
+	public Map<String,List<Edge>> getvemap() {
+		return veMap;
 	}
 
-	public void set_ve_Map(Map<String,List<Edge>> ve_Map) {
-		this.ve_Map = ve_Map;
+	public void setvemap(Map<String,List<Edge>> veMap) {
+		this.veMap = veMap;
 	}
 
 	public ArrayList<String> calcShortestPath(String word1) {
@@ -261,7 +261,7 @@ public class Graph {
 	private void updateChildren(String word) {
 		Vertex v = null;
 
-		if (ve_Map.get(word)==null||ve_Map.get(word).size()==0){
+		if (veMap.get(word)==null||veMap.get(word).size()==0){
 			return;
 		}
 
@@ -269,7 +269,7 @@ public class Graph {
 	//		System.out.print("v:"+v.getName()+" "+v.getAdj()+"    ");
 
 			List<Vertex> childrenList = new LinkedList<Graph.Vertex>();
-			for(Edge edge : ve_Map.get(word)) {
+			for(Edge edge : veMap.get(word)) {
 				for(Vertex ver : vertexList) {
 					if(ver.isSeekVertex(word)) {
 
