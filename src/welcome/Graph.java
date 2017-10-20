@@ -4,10 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import welcome.Graph.Edge;
+
+
 public class Graph {
 
 	private List<Vertex> vertexList;
@@ -19,7 +18,6 @@ public class Graph {
 		this.ve_Map = ve_Map;
 	}
 
-	@SuppressWarnings("finally")
 
 	protected void printInfo(int count, String word1, String word2, ArrayList<String> list) {
 		switch (count) {
@@ -119,7 +117,6 @@ public class Graph {
 	}
 
 
-	@SuppressWarnings("resource")
 	public String randomWalk() throws FileNotFoundException, UnsupportedEncodingException {
 
 		PrintWriter out = new PrintWriter("E:\\asssss.txt", "UTF-8");
@@ -151,11 +148,12 @@ public class Graph {
 				finally {};
 				next = edge.getEnd();
 			}
+			if(next !=null){
 			if  (ve_Map.get(next.name)!=null){
 				System.out.print(next.getName()+ " ");
 				out.println(next.getName()+ " ");
 				path += " -> " + next.getName();
-			}
+			}}
 			System.out.println();
 			out.close();
 			return path;

@@ -8,13 +8,12 @@ import java.nio.file.Paths;
 import welcome.Graph.*;
 
 public class helloworld {
-	@SuppressWarnings("null")
 	public static void main(String[] args) throws Exception{
 		
 //		File file = new File("C:\\Users\\RIZERO\\Desktop\\text.txt");
 //		Scanner sc = new Scanner(file,"UTF-8");
 		Scanner sc = new Scanner(Paths.get("E:\\mubiao.txt"),"UTF-8");
-		Scanner in = new Scanner(System.in);
+//		Scanner in = new Scanner(System.in);
 		ArrayList<String> list = new ArrayList<String>();
 		String s = "[a-z]*", word1 = "", word2 = "";
 		Pattern pattern = Pattern.compile(s);
@@ -153,7 +152,7 @@ public class helloworld {
 		  String word1 = "", word2 = "";
 		  boolean flag = false;
 		  GraphViz gv = new GraphViz();
-		  path.trim();
+		  path=path.trim();
 	   
 	      String[] str = path.split(" -> ");
 	      gv.addln(gv.start_graph());
