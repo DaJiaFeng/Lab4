@@ -23,6 +23,7 @@ public class Graph {
 
 	protected void printInfo(int count, String word1, String word2, ArrayList<String> list) {
 		switch (count) {
+		//可以修改此处的字符串加法，使用StringBuffer类。
 		case -1:
 			System.out.println("No " + word1 + " or " + word2 + " in the graph!");break;
 		case 0:

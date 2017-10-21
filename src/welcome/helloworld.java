@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import welcome.Graph.*;
 
 public class helloworld {
-	@SuppressWarnings("null")
+
 	public static void main(String[] args) throws Exception{
 		
 //		File file = new File("C:\\Users\\RIZERO\\Desktop\\text.txt");
@@ -153,7 +153,7 @@ public class helloworld {
 		  String word1 = "", word2 = "";
 		  boolean flag = false;
 		  GraphViz gv = new GraphViz();
-		  path.trim();
+		  path=path.trim();
 	   
 	      String[] str = path.split(" -> ");
 	      gv.addln(gv.start_graph());
